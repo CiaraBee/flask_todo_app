@@ -1,0 +1,15 @@
+/* Header/Logo Title */
+.header {
+    padding: 30px;
+    text-align: center;
+    background: #ae1abc;
+    color: white;
+    font-size: 30px;
+  }
+
+  body {
+    font-family: Arial;
+    margin: 0;
+  }
+
+  .content {padding:20px;}
