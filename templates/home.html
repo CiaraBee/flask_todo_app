@@ -17,6 +17,45 @@
   <h1>Lunch Picker!</h1>
 </div>
 
+<br>
+
+<table class="center">
+  <caption class="bold">
+    Lunch Suggestions
+  </caption>
+  <thead>
+    <tr>
+      <th>
+        Lunch Place
+      </th>
+      <th>
+        Action
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for task in tasks %}
+  <tr>
+      <td>{{ task.content }}</td>
+      <td>
+          <a href="delete/{{task.id}}">Delete</a> <br>
+          <a href="update/{{task.id}}">Update</a>
+      </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<br>
+
+<div class="form">
+<form action="/" method="POST">
+  <label for="content">Enter Suggestion:</label><br>
+  <input type="text" name="content" id="content">
+  <input type="submit" value="Submit">
+</form>
+</div>
+
 {% endblock %}
 
 </body>
