@@ -6,10 +6,13 @@ jobs:
     if: startsWith(github.head_ref, 'autopep8-patches') == false && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
+      - name: Get PR branch name
+        run: echo PR from $GITHUB_HEAD_REF into $GITHUB_BASE_REF
       # Checkout branch
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ GITHUB_HEAD_REF }}
+          fetch-depth: ${{ env.PR_FETCH_DEPTH }}
       # Run autopep8 styling job
       - name: autopep8
         id: autopep8
@@ -20,7 +23,7 @@ jobs:
       - name: Set autopep8 branch name
         id: vars
         run: |
-          branch-name="autopep8-patches/${{ github.head_ref }}"
+          branch-name="autopep8-patches/${{ GITHUB_HEAD_REF }}"
           echo "branch-name=$branch-name" >> $GITHUB_OUTPUT
       # Create PR with styling changes
       - name: Create Pull Request
