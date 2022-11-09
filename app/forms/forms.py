@@ -1,6 +1,7 @@
-from flask_wtf import FlaskForm 
+from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import InputRequired
+
 
 class InputTodo(FlaskForm):
     """Todo Input form."""
@@ -9,6 +10,7 @@ class InputTodo(FlaskForm):
         validators=[InputRequired()]
     )
     submit = SubmitField('Add task')
+
 
 class ToDoActions(FlaskForm):
     """Todo Actions form."""

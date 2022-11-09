@@ -15,7 +15,7 @@ def home():
     actions = ToDoActions()
     if request.method == 'POST':
         if form.validate_on_submit:
-            todo = Todo(content = form.content.data)
+            todo = Todo(content=form.content.data)
             try:
                 db.session.add(todo)
                 db.session.commit()
@@ -26,4 +26,8 @@ def home():
         # Show all tasks
         tasks = Todo.query.all()
         # Show homepage with all tasks
-        return render_template("add_task.html", tasks=tasks, form = form, actions = actions)
+        return render_template(
+            "add_task.html",
+            tasks=tasks,
+            form=form,
+            actions=actions)
