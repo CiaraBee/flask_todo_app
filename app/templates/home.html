@@ -1,32 +1,17 @@
-<html lang="en">
-<head>
-<title>Lunch Picker!</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% extends 'base.html' %}
 
-{% block head %}
-{% endblock %}
-
-</head>
-<body>
-
-{% block body %}
-
-<div class="header">
-  <h1>Lunch Picker!</h1>
-</div>
-
+{% block content %}
+ 
 <br>
 
 <table class="center">
   <caption class="bold">
-    Lunch Suggestions
+    To Do List
   </caption>
   <thead>
     <tr>
       <th>
-        Lunch Place
+        Task
       </th>
       <th>
         Action
@@ -50,15 +35,14 @@
 
 <div class="form">
 <form action="/" method="POST">
-  <label for="content">Enter Suggestion:</label><br>
+  <label for="content">Enter Task:</label><br>
   <input type="text" name="content" id="content">
   <input type="submit" value="Submit">
 </form>
 </div>
 
-{% endblock %}
-
 </body>
+{% endblock %}
 </html>
 
 

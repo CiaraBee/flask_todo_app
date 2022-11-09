@@ -1,5 +1,5 @@
 from flask import Blueprint, request, redirect, render_template
-from models.models import db, lunchPicker
+from models.models import db, Todo
 import requests
 
 add_task = Blueprint('add_task', __name__)
@@ -13,7 +13,7 @@ def home():
     if request.method == 'POST':
         # Get content from form input
         task_content = request.form['content']
-        new_task = lunchPicker(content=task_content)
+        new_task = Todo(content=task_content)
 
         try:
             # Add task to db
@@ -25,6 +25,6 @@ def home():
 
     else:
         # Show all tasks
-        tasks = lunchPicker.query.all()
+        tasks = Todo.query.all()
         # Show homepage with all tasks
         return render_template("home.html", tasks=tasks)
