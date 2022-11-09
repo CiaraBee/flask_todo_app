@@ -4,6 +4,7 @@ import requests
 
 delete_task = Blueprint('delete_task', __name__)
 
+
 @delete_task.route('/delete/<int:id>')
 def delete(id):
     # Get ID of item to delete
@@ -12,5 +13,5 @@ def delete(id):
         db.session.delete(task_to_delete)
         db.session.commit()
         return redirect('/')
-    except:
+    except BaseException:
         return 'There was an error while deleting that task'
