@@ -8,7 +8,7 @@ db = SQLAlchemy()
 
 
 #Set up db model
-class lunchPicker(db.Model):
+class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(300), nullable=False)
 
