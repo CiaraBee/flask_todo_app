@@ -5,7 +5,9 @@ import requests
 update_task = Blueprint('update_task', __name__)
 
 # Create URL for updating task
-@update_task.route('/update/<int:id>', methods=['GET','POST'])
+
+
+@update_task.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
     task = Todo.query.get_or_404(id)
 
@@ -16,7 +18,7 @@ def update(id):
             db.session.commit()
             # Return to homepage
             return redirect('/')
-        except:
+        except BaseException:
             return 'There was an issue while updating that task'
 
     else:
