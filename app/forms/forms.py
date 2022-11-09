@@ -9,3 +9,8 @@ class InputTodo(FlaskForm):
         validators=[InputRequired()]
     )
     submit = SubmitField('Add task')
+
+class ToDoActions(FlaskForm):
+    """Todo Actions form."""
+    update = SubmitField('Update')
+    delete = SubmitField('Delete')
