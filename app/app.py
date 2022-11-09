@@ -3,6 +3,7 @@ import os
 from models.models import models, db
 from models.add_task import add_task
 from models.update_task import update_task
+from models.delete_task import delete_task
 
 # Get base directory
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -21,6 +22,9 @@ app.register_blueprint(add_task)
 
 # Register update task blueprint
 app.register_blueprint(update_task)
+
+# Register update task blueprint
+app.register_blueprint(delete_task)
 
 # Initialise db
 db.init_app(app)
