@@ -19,12 +19,6 @@ jobs:
         uses: peter-evans/autopep8@v1
         with:
           args: --exit-code --recursive --in-place --aggressive --aggressive .
-      # Create new branch with styling changes
-      - name: Set autopep8 branch name
-        id: vars
-        run: |
-          branch-name="autopep8-patches/${{ github.event.pull_request.head.ref }}"
-          echo "branch-name=$branch-name" >> $GITHUB_OUTPUT
       # Create PR with styling changes
       - name: Create Pull Request
         if: steps.autopep8.outputs.exit-code == 2
@@ -35,7 +29,7 @@ jobs:
           body: This is an auto-generated PR with fixes by autopep8.
           labels: autopep8, automated pr
           reviewers: ${{ secrets.USERNAME_GITHUB }}
-          branch: ${{ steps.vars.outputs.branch-name }}
+          branch: autopep8-patches
       - name: Fail if autopep8 made changes
         if: steps.autopep8.outputs.exit-code == 2
         run: exit 1
