@@ -1,5 +1,5 @@
 from flask import Blueprint, request, redirect, render_template
-from forms.forms import InputTodo
+from forms.forms import InputTodo, ToDoActions
 from models.models import db, Todo
 import requests
 
@@ -10,8 +10,9 @@ add_task = Blueprint('add_task', __name__)
 
 @add_task.route('/', methods=['POST', 'GET'])
 def home():
-    # Add new task
+    # Get forms
     form = InputTodo()
+    actions = ToDoActions()
     if request.method == 'POST':
         if form.validate_on_submit:
             todo = Todo(content = form.content.data)
@@ -25,4 +26,4 @@ def home():
         # Show all tasks
         tasks = Todo.query.all()
         # Show homepage with all tasks
-        return render_template("home.html", tasks=tasks, form = form)
+        return render_template("home.html", tasks=tasks, form = form, actions = actions)
