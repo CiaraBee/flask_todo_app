@@ -33,12 +33,19 @@
 
 <br>
 
-<div class="form">
-<form action="/" method="POST">
-  <label for="content">Enter Task:</label><br>
-  <input type="text" name="content" id="content">
-  <input type="submit" value="Submit">
-</form>
+<div class="text-center">
+<form method="POST" action="/">
+  {{ form.content.label }}
+  {{ form.content }}
+  {% if form.content.errors %}
+    <ul>
+        <li>{{ error }}</li>
+    </ul>
+    {% endif %}
+
+    {{ form.submit }}
+
+  </form>
 </div>
 
 </body>
