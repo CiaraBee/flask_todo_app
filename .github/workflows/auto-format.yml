@@ -23,7 +23,7 @@ jobs:
       - name: Set autopep8 branch name
         id: vars
         run: |
-          branch-name="autopep8-patches/${{ GITHUB_HEAD_REF }}"
+          branch-name="autopep8-patches/${{ github.event.pull_request.head.ref }}"
           echo "branch-name=$branch-name" >> $GITHUB_OUTPUT
       # Create PR with styling changes
       - name: Create Pull Request
