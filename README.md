@@ -24,4 +24,3 @@
  ┣ 📜requirements.txt
 
 #### Worklows
-There is a github workflow used on this repo to automatically style pull requests with pep8 styling convention. The workflow run fails if any changes are made and a new pull request is created containing the styling changes.
