@@ -1,4 +1,5 @@
-/venv/
+# Insert virtual env folder name here
+**/venv/
 **/__pycache__/
 /.vscode/
-/.venv/
+**.db
