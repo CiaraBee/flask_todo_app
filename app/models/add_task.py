@@ -5,7 +5,9 @@ import requests
 add_task = Blueprint('add_task', __name__)
 
 # Create homepage
-@add_task.route('/', methods=['POST','GET'])
+
+
+@add_task.route('/', methods=['POST', 'GET'])
 def home():
     # Add new task
     if request.method == 'POST':
@@ -18,7 +20,7 @@ def home():
             db.session.add(new_task)
             db.session.commit()
             return redirect('/')
-        except:
+        except BaseException:
             return 'There was an error while adding the task'
 
     else:

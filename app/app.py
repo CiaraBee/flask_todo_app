@@ -4,14 +4,14 @@ from models.models import models, db
 from models.add_task import add_task
 from models.update_task import update_task
 
-#Get base directory
+# Get base directory
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 
-#Set up db config to local path
+# Set up db config to local path
 app.config['SQLALCHEMY_DATABASE_URI'] =\
-        'sqlite:///' + os.path.join(basedir, 'test.db')
+    'sqlite:///' + os.path.join(basedir, 'test.db')
 
 # Register db model blueprint
 app.register_blueprint(models)
