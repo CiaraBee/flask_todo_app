@@ -11,7 +11,7 @@ jobs:
       # Checkout branch
       - uses: actions/checkout@v3
         with:
-          ref: ${{ GITHUB_HEAD_REF }}
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: ${{ env.PR_FETCH_DEPTH }}
       # Run autopep8 styling job
       - name: autopep8
