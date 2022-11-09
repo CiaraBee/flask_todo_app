@@ -28,4 +28,9 @@ def update(id):
 
     else:
         # Show update task page
-        return render_template('update_task.html', tasks=tasks, task=task, form = form, actions = actions)
+        return render_template(
+            'update_task.html',
+            tasks=tasks,
+            task=task,
+            form=form,
+            actions=actions)
