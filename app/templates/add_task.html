@@ -1,0 +1,21 @@
+{% extends 'home.html' %}
+
+{% block container %}
+
+<br>
+
+<div class="text-center">
+<form method="POST" action="/">
+  {{ form.content.label }}
+  {{ form.content }}
+  {% if form.content.errors %}
+    <ul>
+        <li>{{ error }}</li>
+    </ul>
+    {% endif %}
+    {{ form.submit }}
+
+  </form>
+</div>
+
+{% endblock %}

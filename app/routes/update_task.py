@@ -1,4 +1,5 @@
 from flask import Blueprint, request, redirect, render_template
+from forms.forms import InputTodo, ToDoActions
 from models.models import db, Todo
 import requests
 
@@ -10,6 +11,10 @@ update_task = Blueprint('update_task', __name__)
 @update_task.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
     task = Todo.query.get_or_404(id)
+
+    form = InputTodo()
+    actions = ToDoActions()
+    tasks = Todo.query.all()
 
     if request.method == 'POST':
         task.content = request.form['content']
@@ -23,4 +28,9 @@ def update(id):
 
     else:
         # Show update task page
-        return render_template('update_task.html', task=task)
+        return render_template(
+            'update_task.html',
+            tasks=tasks,
+            task=task,
+            form=form,
+            actions=actions)

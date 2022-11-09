@@ -27,7 +27,7 @@ def home():
         tasks = Todo.query.all()
         # Show homepage with all tasks
         return render_template(
-            "home.html",
+            "add_task.html",
             tasks=tasks,
             form=form,
             actions=actions)
