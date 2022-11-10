@@ -28,16 +28,16 @@
         <button type="button" class="btn btn-light" onclick="window.location.href='update/{{task.id}}'">
           {{ actions.update.label}}
         </button>
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#deleteModal">
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#deleteModal{{task.id}}">
           {{ actions.delete.label}}
         </button>
 
           <!-- Modal -->
-          <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+          <div class="modal fade" id="deleteModal{{task.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-body">
-                  <p>Are you sure you want to delete this task?</p>
+                  <p>Are you sure you want to delete the task {{ task.content }}</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
